@@ -28,24 +28,35 @@ class Courrier:
         Manage_Frame.place(x=1100, y=25, width=450, height=850)
 
         # inputs
-        Num_Msg = Label(
-            Manage_Frame,
-            text="Numéro du message",
+        self.Msg_input = self.create_input(Manage_Frame, "Numéro du message")
+        self.Msg_date_input = self.create_input(Manage_Frame, "Date du message")
+        self.Msg_office_input = self.create_input(Manage_Frame, "Bureau")
+        self.Msg_objet_input = self.create_input(Manage_Frame, "Objet")
+        self.Msg_receveres_input = self.create_input(Manage_Frame, "Destinataires")
+
+    def create_input(self, parent, label_text):
+        label = Label(
+            parent,
+            text=label_text,
             bg="#007979",
             fg="white",
             font=("Helvetica", 11, "bold"),
             padx=10,
             pady=5,
         )
-        Msg_input = Entry(
-            Manage_Frame,
+
+        entry = Entry(
+            parent,
             bd=2,
             font=("Helvetica", 11),
             width=30,
             relief=SOLID,
         )
-        Num_Msg.pack(pady=(10, 5), fill=X)
-        Msg_input.pack(padx=10, pady=(0, 15))
+
+        label.pack(pady=(10, 5), fill=X)
+        entry.pack(padx=10, pady=(0, 15))
+
+        return entry
 
 
 root = Tk()
