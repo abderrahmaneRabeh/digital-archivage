@@ -4,20 +4,15 @@ from tkinter import *
 class Courrier:
     def __init__(self, root):
         self.root = root
-        # self.root.geometry('1440x900')
         self.root.geometry(
             f"{self.root.winfo_screenwidth()}x{self.root.winfo_screenheight()}"
         )
-        # This is called an f-string (formatted string).
-        # winfo_screenwidth() → gets your screen width
-        # winfo_screenheight() → gets your screen height
-        # so the window adapts automatically
         self.root.title("Gestion des Archives")
         self.root.configure(background="#7AE2CF")
         self.root.resizable(False, False)
         title = Label(
             self.root,
-            text='systeme de l"archivage',
+            text="systeme de l'archivage",
             bg="#077A7D",
             fg="white",
             font=("monospace", 12, "bold"),
@@ -25,7 +20,7 @@ class Courrier:
         title.pack(fill=X)
 
         Manage_Frame = Frame(self.root, bg="white")
-        Manage_Frame.place(x=1100, y=25, width=450, height=850)
+        Manage_Frame.place(x=1130, y=25, width=400, height=850)
 
         # inputs
         self.Msg_input = self.create_input(Manage_Frame, "Numéro du message")
@@ -47,10 +42,11 @@ class Courrier:
 
         entry = Entry(
             parent,
-            bd=2,
+            bd=1,
             font=("Helvetica", 11),
-            width=30,
+            width=60,
             relief=SOLID,
+            justify="center",
         )
 
         label.pack(pady=(10, 5), fill=X)
