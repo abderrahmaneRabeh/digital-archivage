@@ -20,7 +20,7 @@ class Courrier:
         title.pack(fill=X)
 
         Manage_Frame = Frame(self.root, bg="white")
-        Manage_Frame.place(x=1130, y=25, width=400, height=850)
+        Manage_Frame.place(x=1130, y=25, width=400, height=420)
 
         # inputs
         self.Msg_input = self.create_input(Manage_Frame, "Numéro du message")
@@ -28,6 +28,26 @@ class Courrier:
         self.Msg_office_input = self.create_input(Manage_Frame, "Bureau")
         self.Msg_objet_input = self.create_input(Manage_Frame, "Objet")
         self.Msg_receveres_input = self.create_input(Manage_Frame, "Destinataires")
+
+        # buttons
+
+        Btn_frame = Frame(self.root, bg="#66B7B7")
+        Btn_frame.place(x=1130, y=450, width=400, height=420)
+        Btn_frame_title = Label(
+            Btn_frame,
+            text="Controle Panel",
+            bg="#0F3939",
+            fg="white",
+            font=("monospace", 12, "bold"),
+            pady=5,
+        )
+        Btn_frame_title.pack(fill=X)
+
+        Add_Btn = self.create_btn(Btn_frame, "Ajouter l'archive", 20, 40, 360, 30)
+        Modify_Btn = self.create_btn(Btn_frame, "Modifier l'archive", 20, 80, 360, 30)
+        Delete_Btn = self.create_btn(Btn_frame, "Supprimer l'archive", 20, 120, 360, 30)
+        Clear_Btn = self.create_btn(Btn_frame, "Clear l'archive", 20, 160, 360, 30)
+        Exit_Btn = self.create_btn(Btn_frame, "Fermer", 20, 200, 360, 30)
 
     def create_input(self, parent, label_text):
         label = Label(
@@ -53,6 +73,19 @@ class Courrier:
         entry.pack(padx=10, pady=(0, 15))
 
         return entry
+
+    def create_btn(self, parent, btn_text, x, y, wdt, heigh):
+
+        button = Button(
+            parent,
+            text=btn_text,
+            bg="white",
+            fg="#257171",
+            font=("Helvetica", 10, "bold"),
+        )
+        button.place(x=x, y=y, width=wdt, height=heigh)
+
+        return button
 
 
 root = Tk()
