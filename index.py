@@ -1,4 +1,5 @@
 from tkinter import *
+from tkinter import ttk
 
 
 class Courrier:
@@ -48,6 +49,30 @@ class Courrier:
         Delete_Btn = self.create_btn(Btn_frame, "Supprimer l'archive", 20, 120, 360, 30)
         Clear_Btn = self.create_btn(Btn_frame, "Clear l'archive", 20, 160, 360, 30)
         Exit_Btn = self.create_btn(Btn_frame, "Fermer", 20, 200, 360, 30)
+
+        # Search
+
+        Search_frame = Frame(self.root, bg="white")
+        Search_frame.place(x=10, y=30, width=1110, height=50)
+
+        label_search = Label(
+            Search_frame, text="Rechercher", bg="white", font=("monospace", 10)
+        )
+        label_search.place(x=10, y=15)
+
+        search_checkbox = ttk.Combobox(Search_frame, justify="left")
+        search_checkbox["value"] = (
+            "Numéro du message",
+            "Bureau",
+            "Destinataires",
+        )
+        search_checkbox.place(x=90, y=15)
+
+        search_input = Entry(Search_frame, justify="left", border=2)
+        search_input.place(x=250, y=15)
+
+        search_btn = Button(Search_frame, text="Rechercher", bg="#207A7A", fg="white")
+        search_btn.place(x=390, y=13, width=130, height=21)
 
     def create_input(self, parent, label_text):
         label = Label(
